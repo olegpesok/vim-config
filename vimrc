@@ -1,4 +1,5 @@
 set cindent
+
 set autoindent
 set shiftwidth=4
 set softtabstop=4
@@ -35,6 +36,10 @@ if &diff == 'nodiff'
     set shell=/bin/bash\ -i
 endif
 
+set statusline+=%#warningmsg#
+set statusline+=%{fugitive#statusline()}
+set statusline+=%*
+
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.git,node_modules,venv,migrations
 
@@ -47,7 +52,9 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_match_window = 'results:20'
+let g:ctrlp_working_path_mode = 'r'
 
 let NERDTreeIgnore = ['\.pyc$']
 
@@ -74,3 +81,9 @@ let test#python#pytest#options = '-n0'
 let test#strategy = 'vimterminal'
 
 nmap <silent> t<C-n> :TestNearest<CR>
+
+" No backup files, except temporarily when overwriting
+set nobk wb
+" No swap files
+set noswapfile
+
