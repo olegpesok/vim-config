@@ -16,9 +16,9 @@ cp vim ~/.vim
 
 Plugins to install:
 
-ale
-ctrlp.vim
-lightline.vim
-nerdtree
-vim-surround
-vim-test
+* ale
+* ctrlp.vim
+* lightline.vim
+* nerdtree
+* vim-surround
+* vim-test
