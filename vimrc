@@ -70,9 +70,7 @@ Plug 'janko-m/vim-test'
 call plug#end()
 
 let test#python#runner = 'pytest'
+let test#python#pytest#options = '-n0'
 let test#strategy = 'vimterminal'
 
 nmap <silent> t<C-n> :TestNearest<CR>
-
-
-
